@@ -1,34 +1,26 @@
-use bevy::{prelude::*, window::PrimaryWindow, app::AppExit};
+use bevy::{app::AppExit, prelude::*, window::PrimaryWindow};
 
-use crate::{particles::events::SpawnParticlesEvent, styles::{background_style, BACKGROUND_COLOR}};
+use crate::{
+    particles::events::SpawnParticlesEvent,
+    styles::{background_style, BACKGROUND_COLOR},
+};
 
-pub fn spawn_camera(
-    mut commands: Commands, 
-    window_query: Query<&Window, With<PrimaryWindow>>,
-) {
+pub fn spawn_camera(mut commands: Commands, window_query: Query<&Window, With<PrimaryWindow>>) {
     let window = window_query.get_single().unwrap();
 
-    commands
-        .spawn(
-            Camera2dBundle {
-                // transform: Transform::from_xyz(0.0, 0.0, 0.0),
-                transform: Transform::from_xyz(window.width() / 2.0, window.height() / 2.0, 0.0),
-                ..default()
-            }
-        );
+    commands.spawn(Camera2dBundle {
+        // transform: Transform::from_xyz(0.0, 0.0, 0.0),
+        transform: Transform::from_xyz(window.width() / 2.0, window.height() / 2.0, 0.0),
+        ..default()
+    });
 }
 
-pub fn spawn_background(
-    mut commands: Commands,
-    asset_server: Res<AssetServer>,
-) {
-    commands.spawn(
-        ImageBundle {
-            style: background_style(),
-            background_color: BACKGROUND_COLOR.into(),
-            ..default()
-        }
-    );
+pub fn spawn_background(mut commands: Commands, _asset_server: Res<AssetServer>) {
+    commands.spawn(ImageBundle {
+        style: background_style(),
+        background_color: BACKGROUND_COLOR.into(),
+        ..default()
+    });
 }
 
 pub fn handle_input(

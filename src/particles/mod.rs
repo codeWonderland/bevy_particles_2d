@@ -14,11 +14,10 @@ pub struct ParticlesPlugin;
 
 impl Plugin for ParticlesPlugin {
     fn build(&self, app: &mut App) {
-
-        app
-            .register_type::<ParticleSpawner>()
+        app.register_type::<ParticleSpawner>()
             .add_event::<SpawnParticlesEvent>()
-            .add_systems(Update,
+            .add_systems(
+                Update,
                 (
                     on_spawn_particles_event,
                     emit_particles,
@@ -26,8 +25,7 @@ impl Plugin for ParticlesPlugin {
                     update_particle_position.after(emit_particles),
                     update_particle_size.after(emit_particles),
                     update_particle_color.after(emit_particles),
-                )
-            )
-            ;
+                ),
+            );
     }
 }
