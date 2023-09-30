@@ -15,7 +15,7 @@
         end: (4.0, 150.0),
     )),
     particle_color: Some(ParticleColor (
-        start: Rgba(red: 1.0, green: 0.35, blue: 0.0, alpha: 1.0),
+        start: Rgba(red: 1.0, green: 0.35, blue: 1.0, alpha: 1.0),
         end: Rgba(red: 0.2, green: 0.2, blue: 0.8, alpha: 0.1),
     )),
 )
