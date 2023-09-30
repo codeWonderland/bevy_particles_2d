@@ -1,0 +1,21 @@
+(
+    rate: 0.10,
+    amount_per_burst: 40,
+    lifetime: 6.0,
+    particle_lifetime: 3.5,
+    position_variance: 600.0,
+    spray: 1200.0,
+    offset: -0.5,
+    particle_size: Some(ParticleSize (
+        start: 20.0,
+        end: 12.0,
+    )),
+    particle_velocity: Some(ParticleVelocity (
+        start: (4.0, 380.0),
+        end: (4.0, 150.0),
+    )),
+    particle_color: Some(ParticleColor (
+        start: Rgba(red: 1.0, green: 0.35, blue: 0.0, alpha: 1.0),
+        end: Rgba(red: 0.2, green: 0.2, blue: 0.8, alpha: 0.1),
+    )),
+)
